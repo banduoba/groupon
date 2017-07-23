@@ -1,0 +1,76 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+		wechatVersion = '2.7.0'
+	}
+	repositories {
+		mavenLocal()
+		maven {
+			url("https://plugins.gradle.org/m2/")
+		}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	maven {
+		url("https://plugins.gradle.org/m2/")
+	}
+}
+
+configurations {
+	providedRuntime
+}
+
+dependencies {
+	// spring core
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile('org.springframework.boot:spring-boot-starter-websocket')
+
+	// database
+	runtime('mysql:mysql-connector-java')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	//compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0')
+	compile('org.springframework.boot:spring-boot-starter-data-redis')
+	compile 'com.alibaba:druid-spring-boot-starter:1.1.1'
+
+	// Mybatis 增强工具包 Mybatis-Plus
+	//compile 'com.baomidou:mybatisplus-spring-boot-starter:1.0.4'
+
+	// 分页插件
+	//compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.1.2'
+
+	// web template
+	//compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-freemarker')
+
+	// 前端组件
+	compile 'org.webjars.npm:bootstrap:3.3.7'
+	compile 'org.webjars.npm:jquery:2.1.4'
+
+	// WeChat 小程序 微信支付
+	compile group: 'com.github.binarywang', name: 'weixin-java-mp', version: "${wechatVersion}"
+	compile group: 'com.github.binarywang', name: 'weixin-java-miniapp', version: "${wechatVersion}"
+	compile group: 'com.github.binarywang', name: 'weixin-java-pay', version: "${wechatVersion}"
+
+	// tools
+	compileOnly('org.projectlombok:lombok')
+	compile 'com.alibaba:fastjson:1.2.35'
+	compile 'com.vdurmont:emoji-java:3.2.0'
+	compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.8.1'
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+
+}

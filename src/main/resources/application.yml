@@ -1,0 +1,56 @@
+spring:
+  datasource:
+    # 参考https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
+    druid:
+      # JDBC配置
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/groupon?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+      username: root
+      password:
+      # 连接池配置
+      filters: stat,wall,slf4j
+      initialSize: 5
+      minIdle: 3
+      maxActive: 10
+      maxWait: 600000
+      timeBetweenEvictionRunsMillis: 600000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 50
+
+      # WebStatFilter配置
+#      web-stat-filter:
+#        url-pattern:
+#        exclusions:
+#        session-stat-max-count:
+#        session-stat-enable:
+#        principal-cookie-name:
+#        principal-session-name:
+#        profile-enable:
+
+      # StatViewServlet配置
+#      stat-view-servlet:
+#        url-pattern:
+#        allow:
+#        reset-enable:
+#        deny:
+#        login-username:
+#        login-password:
+
+      # Spring监控配置
+      # Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔
+#      aop-patterns: com.qianli.groupon.service.*
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      # 如果spring.datasource.druid.aop-patterns要代理的类没有定义interface请设置spring.aop.proxy-target-class=true
+# 日志配置
+logging:
+  level:
+    com.qianli.groupon: info
+    org.springframework.web: warn

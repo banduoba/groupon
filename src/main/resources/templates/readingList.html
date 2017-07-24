@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>阅读应用</title>
+</head>
+<body>
+<h2>Your Reading List</h2>
+<ul th:unless="${#lists.isEmpty(books)}">
+    <li th:each="book:${books}">
+        <h3>
+            <span th:text="${book.title}">Title</span> by
+            <span th:text="${book.author}">Autho</span>
+            (ISBN: <span th:text="${book.isbn}">ISBN</span>)
+        </h3>
+        <p>
+            <span th:if="${book.description}" th:text="${book.description}">Description</span>
+            <span th:if="${book.description eq null}">No description available</span>
+        </p>
+    </li>
+</ul>
+<p th:if="${#lists.isEmpty(books)}">
+    You have no books in your book list<br>
+</p>
+
+<h2>Add a book</h2>
+<form method="post">
+    <label for="title">Title:</label>
+    <input type="text" name="title" size="50"><br>
+    <label for="author">Author:</label>
+    <input type="text" name="author" size="50"><br>
+    <label for="isbn">ISBN:</label>
+    <input type="text" name="isbn" size="15"><br>
+    <label for="description">Description:</label>
+    <textarea name="description" cols="80" rows="5"></textarea><br>
+    <input type="submit">
+</form>
+</body>
+</html>

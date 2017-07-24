@@ -17,6 +17,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'jar'
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -27,6 +28,11 @@ repositories {
 	maven {
 		url("https://plugins.gradle.org/m2/")
 	}
+}
+
+jar {
+    baseName = 'groupon'
+    version = '0.0.1-SNAPSHOT'
 }
 
 configurations {

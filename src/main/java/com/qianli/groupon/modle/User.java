@@ -26,20 +26,17 @@ public class User {
     @Basic(optional = false,fetch = EAGER)
     private String name;
     private String email;
+    private Integer age;
     @Temporal(TemporalType.TIMESTAMP)
     private Date create_time;
 
     public User() {
     }
 
-    public User(String name, String email) {
+    public User(String name, String email, Integer age, Date create_time) {
         this.name = name;
         this.email = email;
-    }
-
-    public User(String name, String email, Date create_time) {
-        this.name = name;
-        this.email = email;
+        this.age = age;
         this.create_time = create_time;
     }
 

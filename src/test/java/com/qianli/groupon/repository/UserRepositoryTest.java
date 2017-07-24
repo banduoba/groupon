@@ -1,28 +1,23 @@
-package com.qianli.groupon;
+package com.qianli.groupon.repository;
 
 import com.qianli.groupon.modle.User;
-import com.qianli.groupon.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
-@RunWith(SpringRunner.class)
 @SpringBootTest
-public class GrouponApplicationTests {
+@RunWith(SpringRunner.class)
+public class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
 
     @Test
-	public void contextLoads() {
-        List<User> users = userRepository.findByName("Jack");
-        for (User user : users) {
-            System.out.println(user);
-        }
+    public void findUserByMaxId() throws Exception {
+        User user = userRepository.findUserByMaxId();
+        System.out.println(user);
     }
 
 }

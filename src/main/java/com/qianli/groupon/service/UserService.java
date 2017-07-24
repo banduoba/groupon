@@ -3,39 +3,36 @@ package com.qianli.groupon.service;
 import com.qianli.groupon.modle.User;
 import com.qianli.groupon.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.util.List;
 
 /**
  * @author meng
  * @create 2017-07-23 13:47
  */
 
-@Component
-public class UserService implements CommandLineRunner {
+@Service
+public class UserService {
     @Autowired
-    private UserRepository repository;
+    private UserRepository userRepository;
 
-    @Override
-    public void run(String... Strings) throws Exception {
-        /**
-         * do not modify the method
-         */
-        // save a couple of users
-        repository.save(new User("Jack", "Bauer@gmail.com",new Date()));
-        repository.save(new User("Chloe", "OBrian@gmail.com"));
-        repository.save(new User("Kim", "BauerKin@gmail.com"));
-        repository.save(new User("David", "Palmer@gmail.com"));
-        repository.save(new User("Michelle", "Dessler@gmail.com"));
+    public List<User> findUserByName(String name) {
+        return userRepository.findByName(name);
+    }
 
-        // fetch all users
-//        System.out.println("User found with findAll():");
-//        System.out.println("-------------------------------");
-//        for (User user : repository.findAll()) {
-//            System.out.println(user);
-//        }
+    public List<User> getUserName(String name,Integer age) {
+        return userRepository.findByNameStartingWithAndAgeLessThan(name, age);
+    }
 
+    @Transactional
+    public void updateUserName(Long id,String name) {
+        userRepository.updateUserName(id, name);
+    }
+
+    public List<User> findAllUser() {
+        Iterable<User> users = userRepository.findAll();
+        return (List<User>) users;
     }
 }

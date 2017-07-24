@@ -43,14 +43,13 @@ spring:
 
       # Spring监控配置
       # Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔
+      # 如果spring.datasource.druid.aop-patterns要代理的类没有定义interface请设置spring.aop.proxy-target-class=true
 #      aop-patterns: com.qianli.groupon.service.*
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
-      # 如果spring.datasource.druid.aop-patterns要代理的类没有定义interface请设置spring.aop.proxy-target-class=true
-# 日志配置
-logging:
-  level:
-    com.qianli.groupon: info
-    org.springframework.web: warn
+  freemarker:
+    check-template-location: false
+  thymeleaf:
+    cache: false

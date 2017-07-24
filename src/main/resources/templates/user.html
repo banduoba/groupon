@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>用户信息</title>
+</head>
+<body>
+<table width="100%" border="1" cellspacing="1" cellpadding="0">
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>邮箱</td>
+    </tr>
+    <tr th:each="user : ${allUser}">
+        <td th:text="${user.name}">嘟嘟MD</td>
+        <td th:text="${user.age}">SPringBoot干货系列</td>
+        <td th:text="${user.email}">test@126.com</td>
+    </tr>
+</table>
+</body>
+</html>

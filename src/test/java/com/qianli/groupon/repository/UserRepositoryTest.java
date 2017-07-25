@@ -1,6 +1,6 @@
 package com.qianli.groupon.repository;
 
-import com.qianli.groupon.modle.User;
+import com.qianli.groupon.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.qianli.groupon.repository;
 
-import com.qianli.groupon.modle.Book;
+import com.qianli.groupon.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

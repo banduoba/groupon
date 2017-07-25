@@ -1,6 +1,6 @@
 package com.qianli.groupon.controller;
 
-import com.qianli.groupon.modle.User;
+import com.qianli.groupon.model.User;
 import com.qianli.groupon.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

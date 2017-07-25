@@ -1,6 +1,6 @@
 package com.qianli.groupon.repository;
 
-import com.qianli.groupon.modle.User;
+import com.qianli.groupon.model.User;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

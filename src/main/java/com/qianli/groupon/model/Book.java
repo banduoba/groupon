@@ -1,4 +1,4 @@
-package com.qianli.groupon.modle;
+package com.qianli.groupon.model;
 
 import lombok.Getter;
 import lombok.Setter;

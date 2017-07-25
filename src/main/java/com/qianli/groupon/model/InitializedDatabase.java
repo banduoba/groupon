@@ -1,4 +1,4 @@
-package com.qianli.groupon.modle;
+package com.qianli.groupon.model;
 
 import com.qianli.groupon.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

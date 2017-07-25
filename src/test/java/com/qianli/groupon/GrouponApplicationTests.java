@@ -1,6 +1,6 @@
 package com.qianli.groupon;
 
-import com.qianli.groupon.modle.User;
+import com.qianli.groupon.model.User;
 import com.qianli.groupon.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

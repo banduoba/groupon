@@ -1,6 +1,6 @@
 package com.qianli.groupon.service;
 
-import com.qianli.groupon.modle.User;
+import com.qianli.groupon.model.User;
 import com.qianli.groupon.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

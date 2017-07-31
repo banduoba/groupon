@@ -38,4 +38,10 @@ public class ArticleRepositoryTest {
 //        System.out.println(String.format("%s:%s",article.getTitle(),article.getArticleDetail().getArticleContent()));
         System.out.println(article);
     }
+
+
+    @Test
+    public void delete() {
+        articleRepository.delete(2);
+    }
 }

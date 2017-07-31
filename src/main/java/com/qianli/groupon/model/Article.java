@@ -18,7 +18,7 @@ public class Article {
     private Integer id;
     private String title;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "detail_id")
     private ArticleDetail articleDetail;
 

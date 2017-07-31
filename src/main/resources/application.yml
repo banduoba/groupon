@@ -21,7 +21,6 @@ spring:
       testOnReturn: false
       poolPreparedStatements: true
       maxPoolPreparedStatementPerConnectionSize: 50
-
       # WebStatFilter配置
 #      web-stat-filter:
 #        url-pattern:
@@ -49,6 +48,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    generate-ddl: true
+    database: mysql
   freemarker:
     check-template-location: false
   thymeleaf:

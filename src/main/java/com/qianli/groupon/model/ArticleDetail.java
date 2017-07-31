@@ -2,16 +2,14 @@ package com.qianli.groupon.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author meng
  * @create 2017-07-30 23:48
  */
 
+// 维护端(无外键方)
 @Data
 @Entity
 public class ArticleDetail {
@@ -20,4 +18,7 @@ public class ArticleDetail {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String articleContent;
+
+    @OneToOne
+    private Article article;
 }

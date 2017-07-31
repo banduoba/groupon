@@ -10,6 +10,7 @@ import java.util.List;
  * @create 2017-07-30 23:47
  */
 
+// 被维护端(有外键方)
 @Data
 @Entity
 public class Article {
@@ -18,8 +19,9 @@ public class Article {
     private Integer id;
     private String title;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "detail_id")
+    //mappedBy表示被维护端
+    @OneToOne(mappedBy = "article",cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "detail_id")
     private ArticleDetail articleDetail;
 
     //    @JoinColumn(name = "article_id")
